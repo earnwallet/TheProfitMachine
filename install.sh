@@ -8,7 +8,8 @@ echo "#       #    # #   #  #   ## #  #  # #    # #      #      #        #";
 echo "####### #    # #    # #    #  ## ##  #    # ###### ###### ######   #";
 echo "                                                                  ";
 cat info/00-install.txt
-read -p "Are you sure you want to install? <y/N> " prompt
+echo "Are you sure you want to install? <y/N> ";
+read prompt
 if [ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]
 then
   echo "Okey";
