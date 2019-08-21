@@ -10,4 +10,5 @@ simply run install.sh script
 or
 
 `curl https://raw.githubusercontent.com/earnwallet/TheProfitMachine/master/i.sh | bash`
-Code is designed to work in termux.
+
+Code is designed to work in userland on android. (Oneplus 6t tested)
