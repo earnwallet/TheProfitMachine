@@ -17,4 +17,5 @@ then
 else
   exit 0
 fi
-sh ./install/dogecoind.sh
+echo "to start program run:";
+echo "cd TPM && sh ./install/dogecoind.sh";
