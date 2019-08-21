@@ -15,3 +15,4 @@ then
 else
   exit 0
 fi
+sh ./install/dogecoind.sh
