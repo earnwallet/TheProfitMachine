@@ -1,0 +1,10 @@
+Hello! This is earnwallet.xyz tool that (should) give you profits.
+
+For asistance t.me/EarnWalletDev
+
+This tool is FULLY automated, but it need to:
+    - Download about 25 GB of data.
+    - Use ~5GB of device's storage.
+    
+
+=============
