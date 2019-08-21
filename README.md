@@ -1,6 +1,5 @@
 # TheProfitMachine
-What if gambling actualy can bring you profit? idk but I have to check it.
-
+What if you could make money by doing nothing? idk if it's possible but if it is this tool should help.
 
 # 0. Instalation
 simply run install.sh script 
