@@ -1,4 +1,4 @@
 apt update; apt install git -y;
 git clone https://github.com/earnwallet/TheProfitMachine TPM
 echo "to start program run:";
-echo "cd TPM && sh dogecoind.sh";
+echo "cd TPM && sh install.sh";
