@@ -21,3 +21,6 @@ apt install timeout -t
 echo "=============";
 echo "INSTALLING DOGE";
 sh ./install/dogecoind.sh;
+echo "=============";
+echo "INSTALLING NODE";
+sh ./install/node.sh;
