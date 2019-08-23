@@ -1,8 +1,11 @@
 #!/bin/sh
-#dogecoind
-sleep 5;
-dogecoin-cli getbalance
-if [ $? -eq 0 ]; then
+apt install timeout
+echo "checking if dogecoin core is installed";
+start=`date +%s`;
+timeout 10 dogecoind -printtoconsole;
+end=`date +%s`
+tim=`expr $end - $start`
+if [ $tim -gt 9 ]; then
     echo "Dogecoin core is installed";
 else
     echo "Not enough doge, need to make more";
@@ -12,8 +15,8 @@ apt-get install build-essential libtool autotools-dev automake pkg-config libssl
 cd ~
 
 user=$(whoami)
-pass=$(echo -n $user | sha512sum)
-$config_path="/home/$user/.dogecoin"
+pass=$(echo -n $user | sha512sum | cut -c1-61)
+config_path="/home/$user/.dogecoin"
 mkdir $config_path
 file_path="$config_path/dogecoin.conf";
 rm $file_path;
