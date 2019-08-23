@@ -6,5 +6,7 @@ This tool is FULLY automated, but it need to:
     - Download about 25 GB of data.
     - Use ~5GB of device's storage.
     
-
+=============
+[!] Installation process may take even more than few hours, it is recommended to connect your phone to charger because some tools needs to be completed, and compiling use almost all resources, it means that your device may be unusable.
+[!] Make sure that you are on clean system, if you have any data here it may break this tool!
 =============
