@@ -1,7 +1,35 @@
 #!/bin/sh
+#dogecoind
+sleep 5;
+dogecoin-cli getbalance
+if [ $? -eq 0 ]; then
+    echo "Dogecoin core is installed";
+else
+    echo "Not enough doge, need to make more";
+
 echo "Step 0. Install software.";
 apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev -y;
 cd ~
+
+user=$(whoami)
+pass=$(echo -n $user | sha512sum)
+$config_path="/home/$user/.dogecoin"
+mkdir $config_path
+file_path="$config_path/dogecoin.conf";
+rm $file_path;
+echo "rpcuser=$user" >> $file_path
+echo "rpcpassword=$pass" >> $file_path
+echo "rpcport=1337" >> $file_path
+echo "rpcallowip=127.0.0.1" >> $file_path
+echo "txindex=0" >> $file_path
+echo "prune=2200" >> $file_path
+echo "server=1" >> $file_path
+echo "deamon=1" >> $file_path
+echo "maxconnections=8" >> $file_path
+echo "par=0" >> $file_path
+echo "CONFIGURED";
+
+
 pwd=$(pwd)
 git clone https://github.com/dogecoin/dogecoin
 cd ~/dogecoin
@@ -34,4 +62,5 @@ then
 else
   echo "Fuck";
   exit 0
+fi
 fi
