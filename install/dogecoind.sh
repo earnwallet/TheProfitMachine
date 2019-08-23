@@ -16,7 +16,7 @@ cd $BDB_PREFIX
 # -> db-5.1.29.NC.tar.gz: OK
 tar -xzvf bdb.tar.gz
 # Build the library and install to our prefix
-cd $pwd/db-5.1.29.NC/build_unix/
+cd $BITCOIN_ROOT/db-5.1.29.NC/build_unix/
 #  Note: Do a static build so that it can be embedded into the executable, instead of having to find a .so at runtime
 ../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX --build=x86_64 #Replace with your build if needed. 
 make install
