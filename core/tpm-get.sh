@@ -26,10 +26,10 @@ if [ "$cho" == "1" ]; then
     fi
     echo "Before we proceed some paperwork is needed";
     echo "Read this carefully and tell me do you accept it or no, okay?"
-    resp=$(curl https://raw.githubusercontent.com/$username/TPMmod_$package/master/license.txt)
+    # resp=$(curl https://raw.githubusercontent.com/$username/TPMmod_$package/master/license.txt)
     # TODO: Check if repo exist.
     echo " - - - - LICENSE - - - - ";
-    echo $resp;
+    curl https://raw.githubusercontent.com/$username/TPMmod_$package/master/license.txt;
     echo "--------- E N D ---------";
     echo "Is this fair? [Y/n]";
     read a
