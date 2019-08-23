@@ -1,3 +1,3 @@
 echo "Starting Dogecoin Wallet.";
 dogecoind
-#under dev.
+alias tpm-get="sh /home/`whoami`/TPM/core/tpm-get.sh";
