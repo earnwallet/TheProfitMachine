@@ -10,7 +10,7 @@ else
     echo "Not enough doge, need to make more";
 
 echo "Step 0. Install software.";
-apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev -y;
+sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev -y;
 cd ~
 
 user=$(whoami)
@@ -56,13 +56,14 @@ cd $BITCOIN_ROOT
 ./configure LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/" # (other args...)
 make
 make install
-read -p "Is it ok? <y/N> " prompt
+echo "Is it ok? <y/N> " 
+read prompt
 if [ $prompt == "y" ]
 then
   echo "Ok.";
   # http://stackoverflow.com/questions/1537673/how-do-i-forward-parameters-to-other-command-in-bash-script
 else
   echo "Fuck";
-  exit 0
+  exit
 fi
 fi
