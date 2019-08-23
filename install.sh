@@ -17,7 +17,7 @@ then
 else
   exit 0
 fi
-apt install timeout -t
+sudo apt install timeout -t
 echo "=============";
 echo "INSTALLING DOGE";
 sh ./install/dogecoind.sh;
