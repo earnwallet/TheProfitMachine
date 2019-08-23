@@ -11,6 +11,7 @@ mkdir -p $BDB_PREFIX
 # Fetch the source and verify that it is not tampered with
 
 cp ~/TPM/install/bdb.tar.gz $BDB_PREFIX/bdb.tar.gz
+cd $BDB_PREFIX
 # -> db-5.1.29.NC.tar.gz: OK
 tar -xzvf bdb.tar.gz
 # Build the library and install to our prefix
