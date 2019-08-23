@@ -45,6 +45,10 @@ if [ "$cho" == "1" ]; then
     echo "Cloning"
     echo "screems *baa mee*" # sheep was first cloned animal.
     git clone https://github.com/$username/TPMmod_$package $package
+    
+    echo "Installing...";
+    bash install.sh
+
     echo "Complete! This mod is now available!"
     sleep 3
     exit;
@@ -88,6 +92,10 @@ if [ "$cho" == "2" ]; then
     echo "Cloning"
     echo "screems *baa mee*" # sheep was first cloned animal.
     git clone https://github.com/$username/TPMapp_$package $package
+    
+    echo "Installing...";
+    bash install.sh;
+    
     echo "Complete! This app is now available!"
     sleep 3
     exit;
