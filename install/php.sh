@@ -7,5 +7,5 @@ if [ $tim -gt 9 ]; then
     echo "php is installed";
 else
     echo "Installing PHP";
-    apt-get install php7.2 -y
+    apt-get install php7.2-cli -y
 fi
