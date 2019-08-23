@@ -1,5 +1,4 @@
 #!/bin/sh
-apt install timeout
 echo "checking if dogecoin core is installed";
 start=`date +%s`;
 timeout 10 dogecoind -printtoconsole;
