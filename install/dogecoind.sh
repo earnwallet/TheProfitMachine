@@ -1,7 +1,7 @@
 #!/bin/sh
 echo "checking if dogecoin core is installed";
 start=`date +%s`;
-timeout 10 dogecoind -printtoconsole;
+timeout 10 dogecoind;
 end=`date +%s`
 tim=`expr $end - $start`
 if [ $tim -gt 9 ]; then
