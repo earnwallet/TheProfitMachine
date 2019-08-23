@@ -197,7 +197,7 @@ class Bitcoin
     }
 }
 $user = shell_exec('whoami');
-$pass = substr(0,62,hash('sha512',$user));
+$pass = shell_exec("echo -n $user | sha512sum | cut -c1-61");
 $host = "localhost";
 $port = 1337;
 $dogecoin = new Bitcoin($user,$pass,$host,$port);
