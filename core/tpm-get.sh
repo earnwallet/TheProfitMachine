@@ -87,8 +87,8 @@ if [ "$cho" == "2" ]; then
         exit;
     fi
     cd /home/`whoami`/TPM
-    mkdir mods
-    cd mods
+    mkdir app
+    cd app
     echo "Cloning"
     echo "screems *baa mee*" # sheep was first cloned animal.
     git clone https://github.com/$username/TPMapp_$package $package
