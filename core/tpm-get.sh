@@ -49,7 +49,7 @@ if [ "$cho" == "1" ]; then
     echo "Installing...";
     cd /home/`whoami`/TPM
     chmod 777 mods -R
-    bash install.sh
+    bash $package/install.sh
     echo "Complete! This mod is now available!"
     sleep 3
     exit;
@@ -97,7 +97,7 @@ if [ "$cho" == "2" ]; then
     echo "Installing...";
     cd /home/`whoami`/TPM
     chmod 777 mods -R
-    bash install.sh
+    bash $package/install.sh
     echo "Complete! This app is now available!"
     sleep 3
     exit;
