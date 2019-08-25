@@ -47,7 +47,7 @@ if [ "$cho" == "1" ]; then
     git clone https://github.com/$username/TPMmod_$package $package
     cd $package
     echo "Installing...";
-    cd /home/`whoami`/TPM
+    cd /home/`whoami`/TPM/mods
     chmod 777 mods -R
     bash $package/install.sh
     echo "Complete! This mod is now available!"
@@ -88,15 +88,15 @@ if [ "$cho" == "2" ]; then
         exit;
     fi
     cd /home/`whoami`/TPM
-    mkdir app
-    cd app
+    mkdir apps
+    cd apps
     echo "Cloning"
     echo "screems *baa mee*" # sheep was first cloned animal.
     git clone https://github.com/$username/TPMapp_$package $package
     cd $package
     echo "Installing...";
-    cd /home/`whoami`/TPM
-    chmod 777 mods -R
+    cd /home/`whoami`/TPM/apps
+    chmod 777 apps -R
     bash $package/install.sh
     echo "Complete! This app is now available!"
     sleep 3
