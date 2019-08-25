@@ -1,3 +1,5 @@
+cd /home/`whoami`/TPM
+bash update.sh
 cd /home/`whoami`/TPM/core
 bash start.sh
 echo "=============";
