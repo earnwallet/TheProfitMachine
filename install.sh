@@ -23,10 +23,10 @@ else
   exit 0
 fi
 start=`date +%s`;
-timeout 1 sleep 5;
+timeout 2 sleep 5;
 end=`date +%s`
 tim=`expr $end - $start`
-if [ $tim -gt 2 ]; then
+if [ $tim -gt 1 ]; then
     echo "timeout is installed";
 else
     echo "Installing timeout";
