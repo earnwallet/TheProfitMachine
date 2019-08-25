@@ -5,7 +5,7 @@ timeout 2 dogecoind;
 end=`date +%s`
 tim=`expr $end - $start`
 
-if [ $tim -gt 1 -o pgrep -x "dogecoind" >/dev/null ]; then
+if [ $tim -gt 1 -o $? ]; then
     echo "Dogecoin core is installed";
 else
     echo "Not enough doge, need to make more";
