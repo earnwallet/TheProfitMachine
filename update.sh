@@ -10,10 +10,10 @@ do
 done
 echo "Updating apps"
 cd /home/`whoami`/TPM
-cd /home/`whoami`/TPM/app
+cd /home/`whoami`/TPM/apps
 for f in *;
 do
-    cd /home/`whoami`/TPM/app/"$f" && git pull; 
+    cd /home/`whoami`/TPM/apps/"$f" && git pull; 
 done
 echo "Updating core 2/2";
 cd /home/`whoami`/TPM
