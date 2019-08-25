@@ -1,9 +1,9 @@
 echo "checking if php is installed";
 start=`date +%s`;
-timeout 1 php -S 0.0.0.0:8080;
+timeout 2 php -S 0.0.0.0:8987;
 end=`date +%s`
 tim=`expr $end - $start`
-if [ $tim -gt 2 ]; then
+if [ $tim -gt 1 ]; then
     echo "php is installed";
 else
     echo "Installing PHP";
