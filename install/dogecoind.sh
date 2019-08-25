@@ -1,10 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 echo "checking if dogecoin core is installed";
 start=`date +%s`;
 timeout 2 dogecoind;
 end=`date +%s`
 tim=`expr $end - $start`
-if [ $tim -gt 1 ]; then
+
+if [ $tim -gt 1 -o pgrep -x "$SERVICE" >/dev/null ]; then
     echo "Dogecoin core is installed";
 else
     echo "Not enough doge, need to make more";
@@ -56,14 +57,4 @@ cd $BITCOIN_ROOT
 ./configure LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/" # (other args...)
 make
 make install
-echo "Is it ok? <y/N> " 
-read prompt
-if [ $prompt == "y" ]
-then
-  echo "Ok.";
-  # http://stackoverflow.com/questions/1537673/how-do-i-forward-parameters-to-other-command-in-bash-script
-else
-  echo "Fuck";
-  exit
-fi
 fi
