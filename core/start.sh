@@ -1,6 +1,6 @@
 git pull
 echo "Starting Dogecoin Wallet.";
-dogecoind
+dogecoind -daemon
 echo "initializing tpm-get";
 alias tpm-get="bash /home/`whoami`/TPM/core/tpm-get.sh";
 echo "initializing tpm"
