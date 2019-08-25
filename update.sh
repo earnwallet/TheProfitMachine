@@ -9,6 +9,7 @@ do
     cd /home/`whoami`/TPM/mods/"$f" && git pull; 
 done
 echo "Updating apps"
+cd /home/`whoami`/TPM
 cd /home/`whoami`/TPM/app
 for f in *;
 do
