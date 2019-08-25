@@ -47,8 +47,9 @@ if [ "$cho" == "1" ]; then
     git clone https://github.com/$username/TPMmod_$package $package
     cd $package
     echo "Installing...";
+    cd /home/`whoami`/TPM
+    chmod 777 mods -R
     bash install.sh
-
     echo "Complete! This mod is now available!"
     sleep 3
     exit;
@@ -94,8 +95,9 @@ if [ "$cho" == "2" ]; then
     git clone https://github.com/$username/TPMapp_$package $package
     cd $package
     echo "Installing...";
-    bash install.sh;
-    
+    cd /home/`whoami`/TPM
+    chmod 777 mods -R
+    bash install.sh
     echo "Complete! This app is now available!"
     sleep 3
     exit;
