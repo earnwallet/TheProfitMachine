@@ -6,14 +6,14 @@ echo "Updating mods";
 cd /home/`whoami`/TPM/mods;
 for f in *;
 do
-    cd /home/`whoami`/TPM/mods/"$f" && git fetch; 
+    cd /home/`whoami`/TPM/mods/"$f" && git pull; 
 done
 echo "Updating apps"
 cd /home/`whoami`/TPM
 cd /home/`whoami`/TPM/apps
 for f in *;
 do
-    cd /home/`whoami`/TPM/apps/"$f" && git fetch; 
+    cd /home/`whoami`/TPM/apps/"$f" && git pull; 
 done
 echo "Updating core 2/2";
 cd /home/`whoami`/TPM
