@@ -17,7 +17,16 @@ then
 else
   exit 0
 fi
-sudo apt install timeout -t
+start=`date +%s`;
+timeout 1 sleep 5;
+end=`date +%s`
+tim=`expr $end - $start`
+if [ $tim -gt 2 ]; then
+    echo "timeout is installed";
+else
+    echo "Installing timeout";
+    sudo apt-get install timeout -y
+fi
 echo "=============";
 echo "INSTALLING PHP";
 sh ./install/php.sh;
