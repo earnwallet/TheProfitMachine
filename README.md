@@ -9,4 +9,4 @@ Code is designed to work in userland on android. (Oneplus 6t tested)
 
 # 1. Usage
 
-After successful installation type exit to console and reboot your device. After this type `sh TPM/start.sh`
+After successful installation type exit to console and reboot your device. After this type `source ~/TPM/start.sh`
