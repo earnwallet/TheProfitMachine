@@ -18,7 +18,7 @@ if [ "$cho" == "1" ]; then
     read app;
     cd "$app";
     echo "==== START ====";
-    sh start.sh;
+    bash start.sh;
     echo "==== APP CLOSED ====";
     echo " [Exit Code] - $?";
     exit;
@@ -36,7 +36,7 @@ if [ "$cho" == "2" ]; then
     read app;
     cd "$app";
     echo "==== STARTING... ====";
-    sh start.sh;
+    bash start.sh;
     echo "==== APP STARTED ====";
     exit;
 fi
