@@ -1,6 +1,5 @@
 cd /home/`whoami`/TPM
-bash update.sh
-
+# bash update.sh
 git pull
 echo "Starting Dogecoin Wallet.";
 dogecoind -daemon
