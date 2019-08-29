@@ -16,7 +16,7 @@ cd /home/`whoami`/TPM/apps/
 
 for f in *;
 do
-    echo " (=) app: $f";
+    echo " [=] app: $f";
     alias $f="bash /home/`whoami`/TPM/apps/$f/start.sh";
     echo "   ==== I N F O ==== ";
     cat "/home/`whoami`/TPM/apps/$f/info.txt";
@@ -27,7 +27,7 @@ echo "==== D O N E ====";
 echo "Starting background modules";
 for f in *;
 do
-    echo " (=) mod: $f";
+    echo " [=] mod: $f";
     echo "   ==== I N F O ==== ";
     cat "/home/`whoami`/TPM/mods/$f/info.txt";
     echo "==== END INFO ====";
