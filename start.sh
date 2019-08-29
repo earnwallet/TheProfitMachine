@@ -21,7 +21,7 @@ do
     cat "/home/`whoami`/TPM/apps/$f/info.txt";
     echo "==== END INFO ====";
 done;
-
+cd "/home/`whoami`/TPM/mods/"
 echo "==== D O N E ====";
 echo "Starting background modules";
 for f in *;
