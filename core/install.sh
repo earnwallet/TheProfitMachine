@@ -8,6 +8,8 @@ package=$3 # what to install?
 
 if [ "$type" == "mod" -o "$type" == "app" ];
 then
+    echo "Type ok.";
+else
     echo "$type is not valid!";
     exit 1;
 fi
