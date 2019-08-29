@@ -2,23 +2,22 @@ cd /home/`whoami`/TPM
 # bash update.sh
 # TODO: Ask user if he want to do update or no.
 # git pull
-echo "Starting Dogecoin Wallet.";
-dogecoind -daemon
 # screen -dm php -S 127.0.0.1:69042 /home/`whoami`/TPM/core/api
-echo "Initializing aliases 1/2*;
-echo "initializing tpm-get";
+echo "Initializing aliases 1/2";
+echo "Initializing tpm-get";
 alias tpm-get="bash /home/`whoami`/TPM/core/tpm-get.sh";
 echo "initializing tpm"
 alias tpm="bash /home/`whoami`/TPM/core/tpm.sh"
 echo "Initializing external aliases";
 
-cd /home/`whoami`/TPM/apps/
+echo "Initializing aliases 2/2";
+cd "/home/`whoami`/TPM/apps/"
 
 for f in *;
 do
     echo " [=] app: $f";
     alias $f="bash /home/`whoami`/TPM/apps/$f/start.sh";
-    echo "   ==== I N F O ==== ";
+    echo "==== I N F O ====";
     cat "/home/`whoami`/TPM/apps/$f/info.txt";
     echo "==== END INFO ====";
 done;
@@ -41,6 +40,8 @@ do
         exit;
     fi
 done;
+echo "Starting Dogecoin Wallet.";
+dogecoind -daemon
 echo "=============";
 echo "Started, you can use TPM tools now.";
 echo "=============";
