@@ -30,7 +30,9 @@ if [ $tim -gt 1 ]; then
     echo "timeout and screen is installed";
 else
     echo "Installing timeout";
+    sudo apt-get install coreutils -y
     sudo apt-get install timeout -y
+    echo "Installing screen";
     sudo apt-get install screen -y
 fi
 echo "=============";
