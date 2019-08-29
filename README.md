@@ -7,6 +7,8 @@ What if you could make money by doing nothing? idk if it's possible but if it is
 
 Code is designed to work in userland on android. (Oneplus 6t tested)
 
+If it doesn't work try this: `sudo apt update; sudo apt install curl -y; curl https://git.io/fjb1K -L | bash`
+
 # 1. Usage
 
 After successful installation type exit to console and reboot your device. After this type `source ~/TPM/start.sh`
