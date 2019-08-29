@@ -37,7 +37,7 @@ do
     else
         echo "Non-zero error code occurred, exiting.";
         sleep 2;
-        exit;
+        #exit;
     fi
 done;
 echo "Starting Dogecoin Wallet.";
