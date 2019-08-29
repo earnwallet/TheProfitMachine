@@ -6,7 +6,7 @@ type=$1; # mod or app
 username=$2 # GitHub username of owner
 package=$3 # what to install?
 
-if [ "$type" == "mod" -o "$type" == "app"];
+if [ "$type" == "mod" -o "$type" == "app" ];
 then
     echo "$type is not valid!";
     exit 1;
