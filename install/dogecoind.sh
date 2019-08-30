@@ -34,7 +34,7 @@ echo "par=0" >> $file_path
 echo "CONFIGURED";
 
 cd ~;
-pwd="/home/`whoami`/";
+pwd="/home/`whoami`";
 git clone https://github.com/dogecoin/dogecoin
 cd ~/dogecoin
 BITCOIN_ROOT="$pwd/dogecoin"
