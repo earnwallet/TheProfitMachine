@@ -46,7 +46,7 @@ mkdir -p $BDB_PREFIX
 cp "/home/`whoami`/TPM/install/bdb.tar.gz" "$BDB_PREFIX/bdb.tar.gz"
 cd $BDB_PREFIX
 # -> db-5.1.29.NC.tar.gz: OK
-tar -xzvf bdb.tar.gz -C $BITCOIN_ROOT
+tar -xzvf bdb.tar.gz -C "$BITCOIN_ROOT"
 # Build the library and install to our prefix
 cd $BITCOIN_ROOT/db-5.1.29.NC/build_unix/
 #  Note: Do a static build so that it can be embedded into the executable, instead of having to find a .so at runtime
