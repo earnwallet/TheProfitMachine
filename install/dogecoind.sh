@@ -33,8 +33,8 @@ echo "maxconnections=8" >> $file_path
 echo "par=0" >> $file_path
 echo "CONFIGURED";
 
-
-pwd=$(pwd)
+cd ~;
+pwd=$(pwd);
 git clone https://github.com/dogecoin/dogecoin
 cd ~/dogecoin
 BITCOIN_ROOT="$pwd/dogecoin"
@@ -43,7 +43,7 @@ BDB_PREFIX="${BITCOIN_ROOT}/db5"
 mkdir -p $BDB_PREFIX
 # Fetch the source and verify that it is not tampered with
 
-cp $pwd/TPM/install/bdb.tar.gz $BDB_PREFIX/bdb.tar.gz
+cp "/home/`whoami`/TPM/install/bdb.tar.gz" "$BDB_PREFIX/bdb.tar.gz"
 cd $BDB_PREFIX
 # -> db-5.1.29.NC.tar.gz: OK
 tar -xzvf bdb.tar.gz -C $BITCOIN_ROOT
