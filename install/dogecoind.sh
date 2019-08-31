@@ -53,7 +53,7 @@ cd $BITCOIN_ROOT/db-5.1.29.NC/build_unix/
 ../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX --build=x86_64 #Replace with your build if needed. 
 make install
 # Configure Dogecoin Core to use our own-built instance of BDB
-cd $BITCOIN_ROOT
+cd "/home/`whoami`/dogecoin"
 ./autogen.sh
 ./configure LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/" # (other args...)
 make
