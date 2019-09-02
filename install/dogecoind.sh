@@ -84,23 +84,24 @@ else
 		do
 			echo "    - [$f] Starting...";
 			cd "/home/`whoami`/TPM/install/dogecoind-bin/$f/bin";
-			timeout 10 ./dogecoind;
+			./dogecoin-cli;
 			ec="$?";
 			echo "    - [$f] ErrorCode: [$ec]";
 			if [ $ec == "0" -o "$ec" == "1" ];
 			then
-				echo "FOUND!!!";
+				echo "FOUND CORRECT BIN, INSTALLING";
+				sudo install -m 0777 -o `whoami` -g `whoami` -t /usr/local/bin *
+				echo "Downloading dogecoin blockchain from earnwallet servers...";
+				cd ~;
+				cd tmp
+				axel dogecoin.earnwallet.xyz/the_dogecoin_chain.zip;
+				unzip the_dogecoin_chain;
+				rm the_dogecoin_chain.zip*
+				mv ./* "/home/`whoami`/.dogecoin"
 				exit 0;
 			fi
-			echo "FAILED";
-			exit 1;
 		done
-		echo "Downloading dogecoin blockchain from earnwallet servers...";
-		cd ~;
-		cd tmp
-		axel dogecoin.earnwallet.xyz/the_dogecoin_chain.zip;
-		unzip the_dogecoin_chain;
-		rm the_dogecoin_chain.zip*
-		mv ./* "/home/`whoami`/.dogecoin"
+		echo "Failed!";
+		exit 1;
 	fi
 fi
