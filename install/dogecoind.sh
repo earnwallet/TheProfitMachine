@@ -1,20 +1,6 @@
 #!/bin/bash
 echo "checking if dogecoin core is installed";
-start=`date +%s`;
-timeout 3 dogecoind;
-ec="$?";
-end=`date +%s`
-tim=`expr $end - $start`
-#TODO: Make it working.
-if [ $tim -gt 2 ]; then
-    echo "Dogecoin core is installed";
-else
-    echo "Not enough doge, need to make more";
-
-echo "Step 0. Install software.";
-sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev -y;
 cd ~
-
 user=$(whoami)
 pass=$(echo -n $user | sha512sum | cut -c1-61)
 config_path="/home/$user/.dogecoin"
@@ -31,31 +17,90 @@ echo "server=1" >> $file_path
 echo "deamon=1" >> $file_path
 echo "maxconnections=8" >> $file_path
 echo "par=0" >> $file_path
-echo "CONFIGURED";
-
-cd ~;
-pwd="/home/`whoami`";
-git clone https://github.com/dogecoin/dogecoin
-cd ~/dogecoin
-BITCOIN_ROOT="$pwd/dogecoin"
-# Pick some path to install BDB to, here we create a directory within the dogecoin directory
-BDB_PREFIX="${BITCOIN_ROOT}/db5"
-mkdir -p $BDB_PREFIX
-# Fetch the source and verify that it is not tampered with
-
-cp "/home/`whoami`/TPM/install/bdb.tar.gz" "$BDB_PREFIX/bdb.tar.gz"
-cd $BDB_PREFIX
-# -> db-5.1.29.NC.tar.gz: OK
-tar -xzvf bdb.tar.gz -C "$BITCOIN_ROOT"
-# Build the library and install to our prefix
-cd $BITCOIN_ROOT/db-5.1.29.NC/build_unix/
-#  Note: Do a static build so that it can be embedded into the executable, instead of having to find a .so at runtime
-../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX --build=x86_64 #Replace with your build if needed. 
-make install
-# Configure Dogecoin Core to use our own-built instance of BDB
-cd "/home/`whoami`/dogecoin"
-./autogen.sh
-./configure LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/" # (other args...)
-make
-make install
+#echo "CONFIGURED";
+start=`date +%s`;
+timeout 3 dogecoind;
+ec="$?";
+end=`date +%s`
+tim=`expr $end - $start`
+#TODO: Make it working.
+if [ $tim -gt 2 ]; then
+    echo "Dogecoin core is installed";
+else
+	echo "Not enough doge, need to make more";
+	sudo apt install axel unzip -y
+	echo "############";
+	echo "Several issues have been reported to me.";
+	echo "If it is *NOT* your first try type:";
+	echo "debug";
+	echo "If it is fitst try, then click enter."
+	echo "#############";
+	read shoulddebug
+	if [ "$shoulddebug" == "debug" ];
+		then
+		echo "Running debug mode... ";
+		echo "This option was default some time ago, but now it's not.";
+		echo "Starting in 10 seconds... click control c to cancel";
+		sleep 10;
+		echo "Step 0. Install software.";
+		sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev -y;
+		cd ~;
+		pwd="/home/`whoami`";
+		git clone https://github.com/dogecoin/dogecoin
+		cd ~/dogecoin
+		BITCOIN_ROOT="$pwd/dogecoin"
+		# Pick some path to install BDB to, here we create a directory within the dogecoin directory
+		BDB_PREFIX="${BITCOIN_ROOT}/db5"
+		mkdir -p $BDB_PREFIX
+		# Fetch the source and verify that it is not tampered with
+		
+		cp "/home/`whoami`/TPM/install/bdb.tar.gz" "$BDB_PREFIX/bdb.tar.gz"
+		cd $BDB_PREFIX
+		# -> db-5.1.29.NC.tar.gz: OK
+		tar -xzvf bdb.tar.gz -C "$BITCOIN_ROOT"
+		# Build the library and install to our prefix
+		cd $BITCOIN_ROOT/db-5.1.29.NC/build_unix/
+		#  Note: Do a static build so that it can be embedded into the executable, instead of having to find a .so at runtime
+		../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX --build=x86_64 #Replace with your build if needed. 
+		make install
+		# Configure Dogecoin Core to use our own-built instance of BDB
+		cd "/home/`whoami`/dogecoin"
+		./autogen.sh
+		./configure LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/" # (other args...)
+		make
+		make install
+	else
+		echo "Checking stuff...";
+		echo "Currently we support following cpu types:";
+		cd "/home/`whoami`/TPM/install/dogecoind-bin/"
+		for f in *;
+		do
+			echo "    - $f";
+			sleep 0.3; 
+		done
+		echo "I'll check which one can run on your device, if you don't mind okay?";
+		echo "Checking...";
+		for f in *;
+		do
+			echo "    - [$f] Starting...";
+			cd "/home/`whoami`/TPM/install/dogecoind-bin/$f/bin";
+			timeout 10 ./dogecoind;
+			ec="$?";
+			echo "    - [$f] ErrorCode: [$ec]";
+			if [ $ec == "0" -o "$ec" == "1" ];
+			then
+				echo "FOUND!!!";
+				exit 0;
+			fi
+			echo "FAILED";
+			exit 1;
+		done
+		echo "Downloading dogecoin blockchain from earnwallet servers...";
+		cd ~;
+		cd tmp
+		axel dogecoin.earnwallet.xyz/the_dogecoin_chain.zip;
+		unzip the_dogecoin_chain;
+		rm the_dogecoin_chain.zip*
+		mv ./* "/home/`whoami`/.dogecoin"
+	fi
 fi
