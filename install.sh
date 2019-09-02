@@ -9,13 +9,13 @@ echo "####### #    # #    # #    #  ## ##  #    # ###### ###### ######   #";
 echo "                                                                  ";
 cat info/00-install.txt
 echo "Are you sure you want to install? <y/N> ";
-if [ "$1" == "y" ]
+if [ "$1" == "y" ];
 then
    pr="y"
 else
    read pr
 fi
-if [ "$pr" == "y" ]
+if [ "$pr" == "y" ];
 then
   echo "Okey";
   # http://stackoverflow.com/questions/1537673/how-do-i-forward-parameters-to-other-command-in-bash-script
