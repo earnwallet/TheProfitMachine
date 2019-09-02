@@ -35,12 +35,18 @@ else
     echo "Installing screen";
     sudo apt-get install screen -y
 fi
-echo "=============";
-echo "INSTALLING PHP";
-sh ./install/php.sh;
-echo "=============";
-echo "INSTALLING NODE";
-sh ./install/node.sh;
-echo "=============";
-echo "INSTALLING DOGE";
-sh ./install/dogecoind.sh;
+
+cd "/home/`whoami`/TPM/install/";
+for f in *.sh;
+do
+	echo "Executing $f";
+	bash $f;
+	ec=$?
+	if [ "$ec" == 0 ];
+	then
+		echo "[$ec] Success";
+	else
+		echo "[$ec] Failed!!!";
+		exit 1;
+	fi
+done;
