@@ -17,19 +17,19 @@ for f in *;
 do
     echo " [=] app: $f";
     alias $f="bash /home/`whoami`/TPM/apps/$f/start.sh";
-    echo "==== I N F O ====";
+    echo "    ==== I N F O ====";
     cat "/home/`whoami`/TPM/apps/$f/info.txt";
-    echo "==== END INFO ====";
+    echo "    ==== END INFO ====";
 done;
 cd "/home/`whoami`/TPM/mods/"
-echo "==== D O N E ====";
+echo "    ==== D O N E ====";
 echo "Starting background modules";
 for f in *;
 do
     echo " [=] mod: $f";
     echo "   ==== I N F O ==== ";
     cat "/home/`whoami`/TPM/mods/$f/info.txt";
-    echo "==== END INFO ====";
+    echo "   ==== END INFO ====";
     bash /home/`whoami`/TPM/mods/$f/start.sh;
     if [ $? == 0 ];
     then
