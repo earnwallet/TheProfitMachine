@@ -1,9 +1,21 @@
 p=`pwd`
 cd /home/`whoami`/TPM
+
+# To avoid errors, kill everybody
+
+killall screen
+killall php
+killall nodejs
+killall dogecoind
+clear
+#killall litecoind
+#killall bitcoind
+# TODO: Enable this when I enable multicoins
 # bash update.sh
 # TODO: Ask user if he want to do update or no.
 # git pull
 # screen -dm php -S 127.0.0.1:69042 /home/`whoami`/TPM/core/api
+
 echo "Initializing aliases 1/2";
 echo "Initializing tpm-get";
 alias tpm-get="bash /home/`whoami`/TPM/core/tpm-get.sh";
