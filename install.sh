@@ -9,12 +9,12 @@ echo "####### #    # #    # #    #  ## ##  #    # ###### ###### ######   #";
 echo "                                                                  ";
 cat info/00-install.txt
 echo "Are you sure you want to install? <y/N> ";
-#if [ "$1" == "y" ];
-#then
-#   pr="y"
-#else
-#   read pr
-#fi
+if [ "$1" == "y" ];
+then
+   pr="y"
+else
+   read pr
+fi
 if [ "1" == "1" ];
 then
   echo "Okey";

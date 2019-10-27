@@ -17,4 +17,4 @@ do
 done
 echo "Updating core 2/2";
 cd /home/`whoami`/TPM
-sh install.sh y
+bash install.sh y
