@@ -8,7 +8,7 @@ killall nodejs
 killall dogecoind
 clear
 dogecoind -daemon
-sleep 30;
+sleep 5;
 #killall litecoind
 #killall bitcoind
 # TODO: Enable this when I enable multicoins
