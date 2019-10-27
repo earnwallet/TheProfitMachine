@@ -1,3 +1,4 @@
+p=`pwd`
 cd /home/`whoami`/TPM
 # bash update.sh
 # TODO: Ask user if he want to do update or no.
@@ -45,3 +46,4 @@ dogecoind -daemon
 echo "=============";
 echo "Started, you can use TPM tools now.";
 echo "=============";
+cd $p

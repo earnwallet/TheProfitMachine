@@ -1,1 +1,0 @@
-# TPMmod_miner
