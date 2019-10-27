@@ -1,9 +1,5 @@
 p=`pwd`
 cd /home/`whoami`/TPM
-
-dogecoind -daemon
-sleep 30;
-
 # To avoid errors, kill everybody
 
 killall screen
@@ -11,6 +7,8 @@ killall php
 killall nodejs
 killall dogecoind
 clear
+dogecoind -daemon
+sleep 30;
 #killall litecoind
 #killall bitcoind
 # TODO: Enable this when I enable multicoins
