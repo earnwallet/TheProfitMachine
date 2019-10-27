@@ -30,7 +30,7 @@ cd "/home/`whoami`/TPM/apps/"
 for f in *;
 do
 #    echo " [=] app: $f";
-    alias $f="bash /home/`whoami`/TPM/apps/$f/start.sh";
+     alias $f="bash /home/`whoami`/TPM/apps/$f/start.sh";
 #    echo "    ==== I N F O ====";
 #    cat "/home/`whoami`/TPM/apps/$f/info.txt";
 #    echo "    ==== END INFO ====";
@@ -47,7 +47,7 @@ do
     bash /home/`whoami`/TPM/mods/$f/start.sh;
     if [ $? == 0 ];
     then
-#        echo "Module $f started successfully";
+        echo "Module $f started successfully";
     else
         echo "Non-zero error code occurred.";
         sleep 2;
