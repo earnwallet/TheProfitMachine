@@ -1,6 +1,9 @@
 p=`pwd`
 cd /home/`whoami`/TPM
 
+dogecoind -daemon
+sleep 30;
+
 # To avoid errors, kill everybody
 
 killall screen
@@ -16,45 +19,43 @@ clear
 # git pull
 # screen -dm php -S 127.0.0.1:69042 /home/`whoami`/TPM/core/api
 
-echo "Initializing aliases 1/2";
-echo "Initializing tpm-get";
+#echo "Initializing aliases 1/2";
+#echo "Initializing tpm-get";
 alias tpm-get="bash /home/`whoami`/TPM/core/tpm-get.sh";
-echo "initializing tpm"
+#echo "initializing tpm"
 alias tpm="bash /home/`whoami`/TPM/core/tpm.sh"
-echo "Initializing external aliases";
+#echo "Initializing external aliases";
 
-echo "Initializing aliases 2/2";
+#echo "Initializing aliases 2/2";
 cd "/home/`whoami`/TPM/apps/"
 
 for f in *;
 do
-    echo " [=] app: $f";
+#    echo " [=] app: $f";
     alias $f="bash /home/`whoami`/TPM/apps/$f/start.sh";
 #    echo "    ==== I N F O ====";
 #    cat "/home/`whoami`/TPM/apps/$f/info.txt";
 #    echo "    ==== END INFO ====";
 done;
 cd "/home/`whoami`/TPM/mods/"
-echo "    ==== D O N E ====";
-echo "Starting background modules";
+#echo "    ==== D O N E ====";
+#echo "Starting background modules";
 for f in *;
 do
-    echo " [=] mod: $f";
+#    echo " [=] mod: $f";
     #echo "   ==== I N F O ==== ";
     #cat "/home/`whoami`/TPM/mods/$f/info.txt";
     #echo "   ==== END INFO ====";
     bash /home/`whoami`/TPM/mods/$f/start.sh;
     if [ $? == 0 ];
     then
-        echo "Module $f started successfully";
+#        echo "Module $f started successfully";
     else
         echo "Non-zero error code occurred.";
         sleep 2;
         #exit;
     fi
 done;
-echo "Starting Dogecoin Wallet.";
-dogecoind -daemon
 echo "=============";
 echo "Started, you can use TPM tools now.";
 echo "=============";
