@@ -9,12 +9,14 @@ echo "####### #    # #    # #    #  ## ##  #    # ###### ###### ######   #";
 echo "                                                                  ";
 cat info/00-install.txt
 echo "Are you sure you want to install? <y/N> ";
-if [ "$1" == "y" ];
-then
-   pr="y"
-else
-   read pr
-fi
+#if [ "$1" == "y" ];
+#then
+#   pr="y"
+#else
+read pr
+#fi
+
+#Well, I bet that if somebody went here I don't need to check if he entered "y" or "n"
 if [ "1" == "1" ];
 then
   echo "Okey";
