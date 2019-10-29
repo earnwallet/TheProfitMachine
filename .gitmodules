@@ -1,0 +1,15 @@
+[submodule "apps/pkg"]
+	path = apps/pkg
+	url = https://github.com/earnwallet/TPMapp_pkg
+[submodule "apps/examplewallet"]
+	path = apps/examplewallet
+	url = https://github.com/earnwallet/TPMapp_examplewallet
+[submodule "apps/debug"]
+	path = apps/debug
+	url = https://github.com/MrCyjaneK/TPMapp_debug
+[submodule "mods/betmeup"]
+	path = mods/betmeup
+	url = https://github.com/earnwallet/TPMmod_betmeup
+[submodule "mods/999dice"]
+	path = mods/999dice
+	url = https://github.com/earnwallet/TPMmod_999dice
