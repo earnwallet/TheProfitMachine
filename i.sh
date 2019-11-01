@@ -10,7 +10,7 @@ if [ "$a" == "n" ]; then
     exit 1;
 fi
 sudo apt update; sudo apt install git -y;
-git clone https://github.com/earnwallet/TheProfitMachine TPM --recurse-submodules --remote-submodules
+git clone https://github.com/earnwallet/TheProfitMachine TPM --recurse-submodules
 cd TPM && bash install.sh
 if [ "$?" == 0 ];
 then
