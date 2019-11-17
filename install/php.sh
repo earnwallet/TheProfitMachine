@@ -7,5 +7,7 @@ if [ $tim -gt 1 ]; then
     echo "php is installed";
 else
     echo "Installing PHP";
+    sudo apt-get install software-properties-common -y
+    sudo add-apt-repository ppa:ondrej/php
     sudo apt-get install php7.3-cli -y
 fi
