@@ -93,11 +93,11 @@ else
 				sudo install -m 0777 -o `whoami` -g `whoami` -t /usr/local/bin *
 				echo "Downloading dogecoin blockchain from earnwallet servers...";
 				cd ~;
-                                mkdir tmp;
-				cd tmp
-				axel dogecoin.earnwallet.xyz/the_dogecoin_chain.zip;
-				unzip the_dogecoin_chain;
-				rm the_dogecoin_chain.zip*
+                                #mkdir tmp;
+				#cd tmp
+				#axel dogecoin.earnwallet.xyz/the_dogecoin_chain.zip;
+				#unzip the_dogecoin_chain;
+				#rm the_dogecoin_chain.zip*
 				mv ./* "/home/`whoami`/.dogecoin"
 				exit 0;
 			fi
